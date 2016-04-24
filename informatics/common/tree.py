@@ -58,8 +58,22 @@ class BinarySearchTree:
     if (self.root is None):
       self.root = node
     else:
-      node = self.root
+      current_node = self.root
+      while (current_node is not None):
+        if (node.value == current_node.value):
+          return current_node
+        else if (node.value < current_node.value):
+          current_node = current_node.left
+        else if (node.value > current_node.value):
+          current_node = current_node.right
+
+      return None
 
   def delete(self, node):
 
+
   def find(self, value):
+
+  def in_order_traverse:
+
+  def pre_order_traverse:
