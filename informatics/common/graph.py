@@ -13,6 +13,7 @@ class GraphNode:
   def set_data(self, data):
     self.data = data
 
+
 class Graph:
 
   def __init__(self):
@@ -46,7 +47,7 @@ class Graph:
   def get_adjacent_vertices(self, node_id):
     adjacent_vertices = []
     for id in self.adjacency_map[node_id]:
-      adjacent_vertices.append(self.vertices[node_id])
+      adjacent_vertices.append(self.vertices[id])
     return adjacent_vertices
 
   def is_adjacent(self, node_id1, node_id2):
