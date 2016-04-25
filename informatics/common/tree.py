@@ -1,5 +1,3 @@
-import math
-
 class BinaryTreeNode:
 
   def __init__(self, key, value):
@@ -17,28 +15,46 @@ class BinaryHeap:
     self.keys = []
     self.values = {}
 
-  def _get_left_child(i):
-    return self.keys[2 * i + 1]
-
-  def _get_right_child(i):
-    return self.keys[2 * i + 2]
-
-  def _get_parent(i):
-    if (i == 0):
-      return None
-    else
-      return self.keys[math.floor(i / 21)]
+  def _bubble_up(self, i):
+    while (i - 1) // 2 >= 0:
+      parent_index = (i - 1) // 2
+      if (self.keys[i] < self.keys[parent_index]):
+        tmp = self.keys[parent_index]
+        self.keys[parent_index] = self.keys[i]
+        self.keys[i] = tmp
+      i = parent_index
 
   def insert(self, key, value):
-    if (values.length == 0):
-      self.values.append(key)
-      self.values[key] = value
-    else:
-      for i in range(len(self.keys)):
+    self.keys.append(key)
+    self.values[key] = value
+    self._bubble_up(len(self.keys) - 1)
 
+    print self.keys
+
+  def _inorder(self, i, callback):
+    if (i < len(self.keys)):
+      self._inorder(2 * i + 1, callback)
+      callback(i, self.keys[i], self.values[self.keys[i]])
+      self._inorder(2 * i + 2, callback)
+
+  def traverse_inorder(self, callback):
+    self._inorder(0, callback)
+
+  def _preorder(self, node, callback):
+    print 'Unimplemented.'
+
+  def traverse_preorder(self, callback):
+    print 'Unimplemented.'
+
+  def _postorder(self, node, callback):
+    print 'Unimplemented.'
+
+  def traverse_postorder(self, callback):
+    print 'Unimplemented.'
 
   def delete(self, lookup_value):
     print 'Unimplemented.'
+
 
 class BinarySearchTree:
 
